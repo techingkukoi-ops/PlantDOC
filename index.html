@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f2d">
+  <meta name="description" content="PlantDOC helps you track plant care, understand symptoms and build healthier growing habits.">
+  <title>PlantDOC — Grow with confidence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#home" aria-label="PlantDOC home"><span class="brand-mark">P</span><span>Plant<span class="brand-light">DOC</span><small>GROW WITH CONFIDENCE</small></span></a>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav id="main-nav">
+    <a href="#my-plants">My plants</a><a href="#doctor">Plant doctor</a><a href="#shop">Garden shop</a><a href="#premium">Premium</a>
+  </nav>
+  <a class="header-cta" href="#my-plants">Get started <span>↗</span></a>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="pulse"></span> YOUR EVERYDAY PLANT CARE COMPANION</div>
+      <h1>Good things<br>grow <em>with care.</em></h1>
+      <p class="hero-lede">A calmer, smarter way to care for your plants. Keep your collection organised, understand common symptoms and build a routine that works.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#my-plants">Start your garden <span>→</span></a><a class="text-link" href="#doctor">Explore Plant Doctor</a></div>
+      <div class="hero-proof"><div class="avatar-stack"><span>🌱</span><span>🪴</span><span>🌿</span></div><span><strong>Your plants, in one place.</strong><br><small>Free tools to get growing.</small></span></div>
+    </div>
+    <div class="hero-art" aria-label="Illustration of a healthy potted plant"><div class="sun-disc"></div><div class="art-card art-note"><span class="note-icon">✦</span><div><strong>Small steps matter</strong><small>Consistency beats guesswork.</small></div></div><div class="plant-illustration"><div class="leaf leaf-a"></div><div class="leaf leaf-b"></div><div class="leaf leaf-c"></div><div class="leaf leaf-d"></div><div class="stem"></div><div class="pot"><div class="pot-rim"></div></div></div><div class="art-card art-water"><span>💧</span><div><strong>Care reminder</strong><small>Check soil before watering</small></div></div><span class="art-spark spark-one">✳</span><span class="art-spark spark-two">✦</span></div>
+  </section>
+  <section class="quick-stats wrap">
+    <div><span class="stat-icon">♧</span><strong id="plant-count">0</strong><small>Plants in your garden</small></div>
+    <div><span class="stat-icon">✓</span><strong id="due-count">0</strong><small>Care tasks due today</small></div>
+    <div><span class="stat-icon">♡</span><strong>100%</strong><small>Room to grow</small></div>
+  </section>
+  <section class="section wrap" id="my-plants">
+    <div class="section-head"><div><div class="eyebrow">YOUR LITTLE GREEN WORLD</div><h2>My plants<span class="period">.</span></h2><p>Keep your plants and their care routines together.</p></div><button class="btn btn-dark" id="open-add">＋ Add a plant</button></div>
+    <div class="toolbar"><label class="searchbox">⌕ <input id="plant-search" type="search" placeholder="Find a plant..."></label><select id="plant-filter" aria-label="Filter plants"><option value="all">All plants</option><option value="due">Care due</option></select></div>
+    <div id="plant-list" class="plant-grid"><div class="empty-state"><span>🪴</span><h3>Your garden starts here</h3><p>Add a plant to start tracking its care.</p><button class="btn btn-primary" id="empty-add">Add your first plant</button></div></div>
+    <div class="data-actions"><button class="subtle-button" id="export-data">↓ Export my data</button><label class="subtle-button file-label">↑ Import backup<input type="file" id="import-data" accept="application/json"></label><span>Your collection is stored in this browser.</span></div>
+  </section>
+  <section class="doctor-band" id="doctor"><div class="wrap doctor-layout">
+    <div class="doctor-intro"><div class="eyebrow eyebrow-light">A LITTLE HELP FOR YOUR LEAFY FRIENDS</div><h2>Meet your<br><em>Plant Doctor.</em></h2><p>Start with what you can observe. Get practical checks and next steps before reaching for a treatment.</p><div class="doctor-points"><span>✓ Symptom-based guidance</span><span>✓ Photo-assisted inspection</span><span>✓ Clear, cautious next steps</span></div></div>
+    <div class="doctor-panel">
+      <div class="panel-tabs"><button class="tab active" data-tab="symptom">Symptom check</button><button class="tab" data-tab="photo">Photo check</button></div>
+      <div class="tab-panel" id="symptom-panel"><label class="field-label" for="symptom">What are you noticing?</label><select id="symptom" class="full-field"><option value="">Choose a symptom</option><option value="yellow">Yellow leaves</option><option value="brown">Brown or crispy edges</option><option value="spots">Spots or patches</option><option value="drooping">Drooping or wilting</option><option value="white">White powder or residue</option><option value="pests">Visible insects or webbing</option><option value="curling">Curling or distorted leaves</option></select><label class="field-label" for="plant-type">Plant type (optional)</label><input id="plant-type" class="full-field" placeholder="e.g. money plant, rose, tomato"><button class="btn btn-lime full-btn" id="diagnose">Get guidance <span>→</span></button><div id="diagnosis-result" class="diagnosis-result" aria-live="polite"></div></div>
+      <div class="tab-panel hidden" id="photo-panel"><div class="photo-drop"><div class="camera-icon">◎</div><h3>Take a closer look</h3><p>Choose a clear photo showing the affected leaf and, if possible, the whole plant.</p><label class="btn btn-dark" for="plant-photo">Choose a photo</label><input type="file" id="plant-photo" accept="image/*" hidden><img id="photo-preview" alt="Selected plant photo" class="photo-preview hidden"><p id="photo-status" class="photo-status">JPG, PNG or WEBP · up to 10 MB</p></div><div id="photo-guide" class="photo-guide hidden"><strong>Photo inspection checklist</strong><p>Look closely at these details. This browser-only version does not identify disease from pixels; use the checklist to collect useful evidence.</p><ul><li>Photograph the top and underside of affected leaves.</li><li>Check stems, new growth and the soil surface.</li><li>Look for insects, webbing, sticky residue or spreading spots.</li><li>Note recent changes in watering, light and temperature.</li></ul><button class="text-link" id="use-photo-symptom">Continue to symptom check →</button></div></div>
+      <p class="panel-disclaimer">PlantDOC offers educational guidance, not a laboratory diagnosis. Avoid applying pesticides or fertiliser until the cause is clearer.</p>
+    </div>
+  </div></section>
+  <section class="section wrap shop-section" id="shop"><div class="section-head"><div><div class="eyebrow">TOOLS FOR HAPPIER PLANTS</div><h2>Garden essentials<span class="period">.</span></h2><p>Useful categories to consider as your garden grows.</p></div><span class="tag-free">CURATED CATEGORIES</span></div>
+    <div class="product-grid">
+      <article class="product-card"><div class="product-visual visual-one">🪴<span>01</span></div><div class="product-info"><small>THE FOUNDATIONS</small><h3>Potting mix & soil</h3><p>Choose a mix suited to your plant and make sure containers drain well.</p><a class="product-link" href="https://www.amazon.in/s?k=potting+mix+for+plants" target="_blank" rel="noopener noreferrer" data-product="potting mix">Explore options ↗</a></div></article>
+      <article class="product-card"><div class="product-visual visual-two">💧<span>02</span></div><div class="product-info"><small>WATER WISELY</small><h3>Watering tools</h3><p>A small watering can and moisture checks can help prevent guesswork.</p><a class="product-link" href="https://www.amazon.in/s?k=watering+can+for+indoor+plants" target="_blank" rel="noopener noreferrer" data-product="watering tools">Explore options ↗</a></div></article>
+      <article class="product-card"><div class="product-visual visual-three">✂️<span>03</span></div><div class="product-info"><small>KEEP IT TIDY</small><h3>Pruning essentials</h3><p>Clean, sharp tools help you remove damaged growth carefully.</p><a class="product-link" href="https://www.amazon.in/s?k=gardening+pruning+shears" target="_blank" rel="noopener noreferrer" data-product="pruning tools">Explore options ↗</a></div></article>
+    </div><p class="affiliate-note">Shopping links are general product searches, not affiliate links. PlantDOC may earn a commission only after eligible affiliate links are added and disclosed.</p>
+  </section>
+  <section class="premium-section" id="premium"><div class="wrap premium-inner"><div><div class="eyebrow eyebrow-light">COMING INTO BLOOM</div><h2>More insight.<br><em>Better plant care.</em></h2><p>PlantDOC Premium is a planned upgrade for gardeners who want deeper care histories, reminders and connected AI-assisted analysis.</p><ul><li>Plant care history and schedules</li><li>Personalised growing guides</li><li>AI photo analysis when a secure service is connected</li></ul></div><div class="premium-card"><span class="premium-star">✳</span><small>PLANTDOC PREMIUM</small><h3>Coming soon</h3><p>We are shaping the features before accepting payments.</p><button class="btn btn-lime" id="premium-interest">I'm interested</button><p id="premium-message" class="premium-message" aria-live="polite">No payment required.</p></div></div></section>
+  <section class="section wrap tips-section"><div class="eyebrow">A GOOD PLACE TO START</div><h2>Three habits that help<span class="period">.</span></h2><div class="tips-grid"><article><span>01</span><h3>Check before watering</h3><p>Feel the soil first. A fixed schedule can lead to overwatering when conditions change.</p></article><article><span>02</span><h3>Give light a thought</h3><p>Notice how much direct and indirect light reaches your plant throughout the day.</p></article><article><span>03</span><h3>Look underneath</h3><p>Inspect leaf undersides regularly; early signs of pests are easy to miss.</p></article></div></section>
+</main>
+<footer><div class="footer-main wrap"><a class="brand brand-footer" href="#home"><span class="brand-mark">P</span><span>Plant<span class="brand-light">DOC</span><small>GROW WITH CONFIDENCE</small></span></a><p>Helping you care for the green things that make a place feel like home.</p><div class="footer-links"><a href="#my-plants">My plants</a><a href="#doctor">Plant Doctor</a><a href="#shop">Garden shop</a><a href="#premium">Premium</a></div></div><div class="footer-bottom wrap"><span>© <span id="year"></span> PlantDOC. Built to help gardens grow.</span><span>Guidance is educational and not a substitute for expert diagnosis.</span></div></footer>
+<div class="modal-backdrop hidden" id="plant-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal"><button class="modal-close" id="close-modal" aria-label="Close">×</button><div class="eyebrow">ADD TO YOUR COLLECTION</div><h2 id="modal-title">Meet your new plant.</h2><form id="plant-form"><label class="field-label" for="new-plant-name">Plant name</label><input id="new-plant-name" class="full-field" required maxlength="50" placeholder="e.g. Monstera"><label class="field-label" for="new-plant-type">Plant type or variety <span>(optional)</span></label><input id="new-plant-type" class="full-field" maxlength="60" placeholder="e.g. Monstera deliciosa"><label class="field-label" for="water-interval">Water check interval</label><select id="water-interval" class="full-field"><option value="3">Every 3 days</option><option value="5" selected>Every 5 days</option><option value="7">Every 7 days</option><option value="10">Every 10 days</option><option value="14">Every 14 days</option></select><p class="form-hint">This creates a reminder to check soil moisture, not an instruction to water automatically.</p><button class="btn btn-primary full-btn" type="submit">Add to my garden</button></form></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body></html>
